@@ -1,6 +1,5 @@
-import {
-    Component, Input, Output, EventEmitter, ElementRef, Renderer, HostBinding,
-} from 'angular2/core';
+import {Component, Input, Output, EventEmitter, ElementRef, Renderer, HostBinding, Optional} from 'angular2/core';
+import {NglAccordion} from './accordion';
 
 @Component({
   selector: 'ngl-section',
@@ -17,11 +16,20 @@ export class NglSection {
     return this.open;
   }
 
-  constructor(private element: ElementRef, private renderer: Renderer) {
+  constructor(@Optional() private accordion: NglAccordion, private element: ElementRef, private renderer: Renderer) {
     renderer.setElementClass(element.nativeElement, 'slds-section', true);
   }
 
+  ngOnInit() {
+    if (!this.accordion) return;
+    this.accordion.closeEvent.filter((section: NglSection) => section !== this).subscribe(() => this.open = false);
+  }
+
   toggle() {
-    this.openChange.emit(!this.open);
+    if (this.accordion) {
+      this.accordion.toggle(this);
+    } else {
+      this.openChange.emit(!this.open);
+    }
   }
 }

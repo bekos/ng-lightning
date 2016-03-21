@@ -7,6 +7,5 @@ import {NGL_DIRECTIVES} from '../../../../../dist/ng-lightning';
     template: require('./sections.html'),
 })
 export class DemoSections {
-  value = 4;
-  readonly = false;
+  closeOthers = false;
 }

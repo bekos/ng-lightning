@@ -1,0 +1,89 @@
+import {bootstrap}    from 'angular2/platform/browser';
+import {
+    Component, forwardRef, Inject, Input, QueryList, ContentChildren, AfterContentChecked,
+    Optional
+} from 'angular2/core';
+
+@Component({
+    selector: 'ngb-panel',
+    template: `
+    <div class="panel panel-default" [class.panel-open]="open">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a href tabindex="0"><span [class.text-muted]="disabled" (click)="toggleOpen($event)">{{title}}</span></a>
+        </h4>
+      </div>
+      <div class="panel-collapse collapse" [class.in]="open" [attr.aria-expanded]="open">
+        <div class="panel-body">
+          <ng-content></ng-content>
+        </div> 
+      </div>
+    </div>
+  `
+})
+export class NgbPanel {
+    @Input() disabled: boolean;
+    @Input() open = false;
+    @Input() title: string;
+
+    constructor(@Optional() private accordion: NgbAccordion) {}
+
+    ngOnInit() {
+      if (!this.accordion) return;
+      this.accordion.closeEvent.filter((panel: NgbPanel) => panel !== this).subscribe(() => this.open = false);
+    }
+  
+    toggleOpen(event): void {
+        event.preventDefault();
+        if (this.disabled) return;
+
+        this.open = !this.open;
+        if (this.open && this.accordion) {
+            this.accordion.closeOthers(this);
+        }
+    }
+}
+
+@Component({
+    selector: 'ngb-accordion',
+    host: {
+        'role': 'tablist',
+        '[attr.aria-multiselectable]': '!closeOtherPanels'
+    },
+    template: `<ng-content></ng-content>`
+})
+export class NgbAccordion implements AfterContentChecked {
+
+    @Output() closeEvent = new EventEmitter(false);
+    @Input('closeOthers') closeOtherPanels = true;
+
+    closeOthers(openPanel: NgbPanel): void {
+        this.closeEvent.emit(openPanel);
+    }
+
+    ngAfterContentChecked() {
+        var openPanels = this._panels.toArray().filter((panel) => panel.open);
+        if (openPanels.length > 1) {
+            this.closeOthers(openPanels[0]);
+        }
+    }
+}
+
+ 
+@Component({
+	selector: 'my-app',
+	template: `
+	  <ngb-panel title="Standalone">Standalone content</ngb-panel>
+	
+	  <hr>
+	
+	  <ngb-accordion>
+	    <ngb-panel title="Foo" [open]="true">Foo content</ngb-panel>
+	    <ngb-panel title="Bar">Bar content</ngb-panel>
+	  </ngb-accordion>
+	`,
+  directives: [NgbPanel, NgbAccordion]
+})
+class AppComponent { }
+
+bootstrap(AppComponent);

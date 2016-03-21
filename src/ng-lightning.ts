@@ -15,6 +15,7 @@ import {NglPagination} from './paginations/pagination';
 import {NglPopover} from './popovers/popover';
 import {NglPopoverTrigger} from './popovers/trigger';
 import {NglRating} from './ratings/rating';
+import {NglAccordion} from './sections/accordion';
 import {NglSection} from './sections/section';
 import {NglSpinner} from './spinners/spinner';
 import {NglTabs} from './tabs/tabs';
@@ -35,6 +36,7 @@ export {NglPagination} from './paginations/pagination';
 export {NglPopover} from './popovers/popover';
 export {NglPopoverTrigger} from './popovers/trigger';
 export {NglRating} from './ratings/rating';
+export {NglAccordion} from './sections/accordion';
 export {NglSection} from './sections/section';
 export {NglSpinner} from './spinners/spinner';
 export {NglTabs} from './tabs/tabs';
@@ -50,7 +52,7 @@ export const NGL_DIRECTIVES = [
   NglPagination,
   NglPopover, NglPopoverTrigger,
   NglRating,
-  NglSection,
+  NglSection, NglAccordion,
   NglSpinner,
   NglTabs, NglTab,
 ];

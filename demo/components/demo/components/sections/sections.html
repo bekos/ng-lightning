@@ -4,3 +4,13 @@
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas sed diam eget risus varius blandit sit amet non magna. Vestibulum id ligula porta felis euismod
     semper. Etiam porta sem malesuada magna mollis euismod.</p>
 </ngl-section>
+
+
+<ngl-accordion [closeOthers]="closeOthers">
+  <ngl-section title="Section 1">Section 1</ngl-section>
+  <ngl-section title="Section 2" open="true">Section 2</ngl-section>
+  <ngl-section title="Section 3">Section 3</ngl-section>
+</ngl-accordion>
+
+
+<button type="button" (click)="closeOthers = !closeOthers">Toggle {{closeOthers}}</button>
