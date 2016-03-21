@@ -1,0 +1,8 @@
+.slds-section__title
+  h3.slds-section__title-action(href='#void')
+    button.slds-button.slds-button--icon-container(type="button", (click)="toggle()")
+      svg.slds-button__icon(aria-hidden='true')
+        use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='/assets/icons/utility-sprite/svg/symbols.svg#switch')
+    | {{title}}
+.slds-section__content
+  ng-content

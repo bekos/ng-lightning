@@ -11,6 +11,7 @@ import {DemoModals} from './components/modals/modals';
 import {DemoPaginations} from './components/paginations/paginations';
 import {DemoPopovers} from './components/popovers/popovers';
 import {DemoRatings} from './components/ratings/ratings';
+import {DemoSections} from './components/sections/sections';
 import {DemoSpinners} from './components/spinners/spinners';
 import {DemoTabs} from './components/tabs/tabs';
 
@@ -27,6 +28,7 @@ export interface IComponent {
 };
 
 const components: any[] = [
+  { key: 'sections', component: DemoSections },
   { key: 'badges', component: DemoBadges },
   { key: 'buttons', component: DemoButtons },
   { key: 'icons', component: DemoIcons },
