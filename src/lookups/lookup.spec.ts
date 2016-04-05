@@ -171,6 +171,25 @@ describe('Lookup Component', () => {
     });
   }));
 
+  it('should close menu on blur', testAsync(({fixture, done}) => {
+    const { nativeElement, componentInstance } = fixture;
+    fixture.detectChanges();
+
+    const { input } = getElements(nativeElement);
+
+    componentInstance.value = 'DE';
+    fixture.detectChanges();
+    setTimeout(() => {
+      fixture.detectChanges();
+      expectMenuExpanded(nativeElement, true);
+
+      input.dispatchEvent(new Event('blur'));
+      fixture.detectChanges();
+      expectMenuExpanded(nativeElement, false);
+      done();
+    });
+  }));
+
   it('should handle objects using `field` property', testAsync(({fixture, done}) => {
     const { nativeElement, componentInstance } = fixture;
     fixture.detectChanges();

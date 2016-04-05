@@ -88,7 +88,9 @@ export class NglLookup {
   }
 
   close(evt: KeyboardEvent) {
-    evt.preventDefault();
+    if (evt) {
+      evt.preventDefault();
+    }
     this.open = false;
   }
 

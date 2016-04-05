@@ -5,7 +5,7 @@
     .slds-form-element__control
       input.slds-input([id]="inputId", type="text", aria-autocomplete="list", role="combobox", 
                        [attr.aria-expanded]="open", aria-activedescendant="",
-                       [ngFormControl]="input", (keydown.Esc)="close($event)", [placeholder]="placeholder || ''")
+                       [ngFormControl]="input", (keydown.Esc)="close($event)", (blur)="close()", [placeholder]="placeholder || ''")
 
   .slds-lookup__menu([ngClass]="{'slds-hide': !open}", role="listbox")
     ul.slds-lookup__list(role="presentation")
