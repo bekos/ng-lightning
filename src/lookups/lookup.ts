@@ -1,4 +1,4 @@
-import {Component, ContentChild, ChangeDetectionStrategy, Input, Attribute, Output, EventEmitter, ElementRef, Renderer, ChangeDetectorRef, ViewChild} from '@angular/core';
+import {Component, ContentChild, ChangeDetectionStrategy, Input, Attribute, Output, EventEmitter, ElementRef, Renderer, ViewChild} from '@angular/core';
 import {Observable, BehaviorSubject} from 'rxjs/Rx';
 import {NglLookupItemTemplate} from './item';
 import {NglPill} from '../pills/pill';
@@ -51,10 +51,7 @@ export class NglLookup {
   @Input() set open(_open: boolean) {
     if (this.open === _open) return;
     if (_open) {
-      this.globalClickUnsubscriber = this.renderer.listenGlobal('document', 'click', ($event: MouseEvent) => {
-        this.globalClickHandler($event);
-        this.detector.markForCheck();
-      });
+      this.globalClickUnsubscriber = this.renderer.listenGlobal('document', 'click', ($event: Event) => this.globalClickHandler($event));
     } else {
       this.activeIndex = -1;
       this.unsubscribeGlobalClick();
@@ -64,6 +61,8 @@ export class NglLookup {
   get open(): boolean {
     return this._open;
   }
+  @Output() private openChange = new EventEmitter<boolean>();
+
   private inputValue = '';
   private inputSubject = new BehaviorSubject(undefined);
   private suggestions: any[];
@@ -72,7 +71,7 @@ export class NglLookup {
   private lastUserInput: string;
   private pendingFocus = false;
 
-  constructor(private element: ElementRef, private renderer: Renderer, private detector: ChangeDetectorRef,
+  constructor(private element: ElementRef, private renderer: Renderer,
               @Attribute('debounce') private debounce: number) {
     if (this.debounce === null) {
       this.debounce = 200;
@@ -110,8 +109,7 @@ export class NglLookup {
     suggestions$.subscribe((suggestions: any[]) => {
       this.suggestions = suggestions;
       this.noResults = Array.isArray(suggestions) && !suggestions.length;
-      this.open = !!suggestions;
-      this.detector.markForCheck();
+      this.openChange.emit(!!suggestions);
     });
   }
 
@@ -121,15 +119,15 @@ export class NglLookup {
 
   close(evt: KeyboardEvent) {
     evt.preventDefault();
-    this.open = false;
+    this.openChange.emit(false);
   }
 
-  globalClickHandler($event: MouseEvent) {
+  globalClickHandler($event: Event) {
     const { nativeElement } = this.element;
     if ($event.target === nativeElement || nativeElement.contains($event.target)) {
       return;
     }
-    this.open = false;
+    this.openChange.emit(false);
   }
 
   optionId(index: number) {

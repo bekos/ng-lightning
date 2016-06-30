@@ -11,6 +11,8 @@ import {Observable} from 'rxjs/Rx';
 })
 export class DemoLookups {
 
+  private openAsyncMenu = false;
+
   constructor(public http: Http) {}
 
   lookup = (query: string): string[] => {

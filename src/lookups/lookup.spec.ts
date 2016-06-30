@@ -117,7 +117,7 @@ describe('Lookup Component', () => {
     fixture.componentInstance.selection = 'my selection';
     fixture.detectChanges();
     expectMenuExpanded(nativeElement, false);
-  }, `<ngl-lookup [value]="value" [lookup]="filter" [pick]="selection" debounce="0"></ngl-lookup>`));
+  }, `<ngl-lookup [(open)]="open" [value]="value" [lookup]="filter" [pick]="selection" debounce="0"></ngl-lookup>`));
 
   it('should trigger lookup function when value changes', testAsync((fixture: ComponentFixture<TestComponent>) => {
     const { componentInstance } = fixture;
@@ -149,7 +149,7 @@ describe('Lookup Component', () => {
     expectOptions(fixture, ['No results found']);
   }));
 
-  it('should update input with selection and close menu', testAsync((fixture: ComponentFixture<TestComponent>) => {
+  it('should update input with selection', testAsync((fixture: ComponentFixture<TestComponent>) => {
     const { nativeElement, componentInstance } = fixture;
     fixture.detectChanges();
 
@@ -213,7 +213,7 @@ describe('Lookup Component', () => {
     const { options } = getElements(nativeElement);
     options[1].click();
     expect(componentInstance.onSelect).toHaveBeenCalledWith({id: 2, name: 'DEFGH'});
-  }, `<ngl-lookup [value]="value" [lookup]="filterObject" field="name" (pickChange)="onSelect($event)" debounce="0"></ngl-lookup>`));
+  }, `<ngl-lookup [(open)]="open" [value]="value" [lookup]="filterObject" field="name" (pickChange)="onSelect($event)" debounce="0"></ngl-lookup>`));
 
   it('should support keyboard navigation and selection', testAsync((fixture: ComponentFixture<TestComponent>) => {
     const { nativeElement, componentInstance } = fixture;
@@ -274,7 +274,7 @@ describe('Lookup Component', () => {
     const { options } = getElements(nativeElement);
     expect(options[0]).toHaveText('foo_1 - bar_1 DE');
     expect(options[1]).toHaveText('foo_2 - bar_2 DE');
-  }, `<ngl-lookup [value]="value" [lookup]="filter" [pick]="selection" (pickChange)="onSelect($event)" debounce="0">
+  }, `<ngl-lookup [open]="true" [value]="value" [lookup]="filter" [pick]="selection" (pickChange)="onSelect($event)" debounce="0">
         <span nglLookupLabel>Lookup:</span>
         <template nglLookupItem let-ctx>{{ctx.foo}} - {{ctx.bar}} {{value}}</template>
       </ngl-lookup>`));
@@ -294,7 +294,7 @@ function testAsync(fn: (value: ComponentFixture<TestComponent>) => void, html: s
 @Component({
   directives: [NGL_LOOKUP_DIRECTIVES],
   template: `
-    <ngl-lookup [value]="value" [lookup]="filter" [pick]="selection" (pickChange)="onSelect($event)" debounce="0">
+    <ngl-lookup [(open)]="open" [value]="value" [lookup]="filter" [pick]="selection" (pickChange)="onSelect($event)" debounce="0">
       <span nglLookupLabel>Lookup:</span>
     </ngl-lookup>`,
 })
