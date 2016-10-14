@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, ModuleWithProviders} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {NglIconsModule} from '../icons/module';
@@ -18,4 +18,8 @@ const NGL_PICKLIST_DIRECTIVES = [
   exports: [NGL_PICKLIST_DIRECTIVES, NglPickModule],
   imports: [CommonModule, FormsModule, NglIconsModule, NglPickModule, NglMenusModule],
 })
-export class NglPicklistModule {}
+export class NglPicklistModule {
+  static forRoot(): ModuleWithProviders {
+    return {ngModule: NglPicklistModule, providers: []};
+  }
+}

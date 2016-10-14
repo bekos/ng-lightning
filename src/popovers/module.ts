@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, ModuleWithProviders} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {NglPopover} from './popover';
@@ -17,4 +17,8 @@ const NGL_POPOVER_DIRECTIVES = [
   imports: [CommonModule],
   entryComponents: [NglPopover],
 })
-export class NglPopoversModule {}
+export class NglPopoversModule {
+  static forRoot(): ModuleWithProviders {
+    return {ngModule: NglPopoversModule, providers: []};
+  }
+}

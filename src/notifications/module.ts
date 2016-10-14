@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, ModuleWithProviders} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {NglNotification} from './notification';
@@ -15,4 +15,8 @@ const NGL_NOTIFICATION_DIRECTIVES = [
   exports: [NGL_NOTIFICATION_DIRECTIVES],
   imports: [CommonModule, NglIconsModule],
 })
-export class NglNotificationsModule {}
+export class NglNotificationsModule {
+  static forRoot(): ModuleWithProviders {
+    return {ngModule: NglNotificationsModule, providers: []};
+  }
+}

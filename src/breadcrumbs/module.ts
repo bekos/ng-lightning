@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, ModuleWithProviders} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {NglBreadcrumbs} from './breadcrumbs';
@@ -14,4 +14,8 @@ const NGL_BREADCRUMB_DIRECTIVES = [
   exports: [NGL_BREADCRUMB_DIRECTIVES],
   imports: [CommonModule],
 })
-export class NglBreadcrumbsModule {}
+export class NglBreadcrumbsModule {
+  static forRoot(): ModuleWithProviders {
+    return {ngModule: NglBreadcrumbsModule, providers: []};
+  }
+}

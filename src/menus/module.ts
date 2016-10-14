@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, ModuleWithProviders} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {NglDropdownTrigger} from './dropdown-trigger';
@@ -17,4 +17,8 @@ const NGL_DROPDOWN_DIRECTIVES = [
   exports: [NGL_DROPDOWN_DIRECTIVES],
   imports: [CommonModule],
 })
-export class NglMenusModule {}
+export class NglMenusModule {
+  static forRoot(): ModuleWithProviders {
+    return {ngModule: NglMenusModule, providers: []};
+  }
+}

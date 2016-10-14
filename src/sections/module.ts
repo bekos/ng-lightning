@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, ModuleWithProviders} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {NglSection} from './section';
@@ -9,4 +9,8 @@ import {NglIconsModule} from '../icons/module';
   exports: [NglSection],
   imports: [CommonModule, NglIconsModule],
 })
-export class NglSectionsModule {}
+export class NglSectionsModule {
+  static forRoot(): ModuleWithProviders {
+    return {ngModule: NglSectionsModule, providers: []};
+  }
+}

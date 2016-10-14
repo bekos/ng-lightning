@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, ModuleWithProviders} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {NglRating} from './rating';
@@ -15,4 +15,8 @@ const DIRECTIVES = [
   declarations: [ ...DIRECTIVES ],
   exports: [ ...DIRECTIVES ],
 })
-export class NglRatingsModule {}
+export class NglRatingsModule {
+  static forRoot(): ModuleWithProviders {
+    return {ngModule: NglRatingsModule, providers: []};
+  }
+}

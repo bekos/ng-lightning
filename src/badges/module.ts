@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, ModuleWithProviders} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {NglBadge} from './badge';
@@ -8,4 +8,8 @@ import {NglBadge} from './badge';
   exports: [NglBadge],
   imports: [CommonModule],
 })
-export class NglBadgesModule {}
+export class NglBadgesModule {
+  static forRoot(): ModuleWithProviders {
+    return {ngModule: NglBadgesModule, providers: []};
+  }
+}

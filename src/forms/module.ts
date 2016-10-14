@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, ModuleWithProviders} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {NglInternalOutletModule} from '../util/outlet.module';
 
@@ -26,4 +26,8 @@ const NGL_FORM_DIRECTIVES = [
   exports: NGL_FORM_DIRECTIVES,
   imports: [CommonModule, NglInternalOutletModule],
 })
-export class NglFormsModule {}
+export class NglFormsModule {
+  static forRoot(): ModuleWithProviders {
+    return {ngModule: NglFormsModule, providers: []};
+  }
+}

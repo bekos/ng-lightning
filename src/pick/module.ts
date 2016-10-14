@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, ModuleWithProviders} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {NglPick} from './pick';
@@ -14,4 +14,8 @@ const NGL_PICK_DIRECTIVES = [
   exports: [NGL_PICK_DIRECTIVES],
   imports: [CommonModule],
 })
-export class NglPickModule {}
+export class NglPickModule {
+  static forRoot(): ModuleWithProviders {
+    return {ngModule: NglPickModule, providers: []};
+  }
+}

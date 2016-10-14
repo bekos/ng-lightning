@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, ModuleWithProviders} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {NglIconsModule} from '../icons/module';
@@ -24,4 +24,8 @@ const NGL_LOOKUP_DIRECTIVES = [
   exports: [NGL_LOOKUP_DIRECTIVES],
   imports: [CommonModule, FormsModule, NglIconsModule, NglPillsModule, NglMenusModule, NglInternalOutletModule],
 })
-export class NglLookupsModule {}
+export class NglLookupsModule {
+  static forRoot(): ModuleWithProviders {
+    return {ngModule: NglLookupsModule, providers: []};
+  }
+}

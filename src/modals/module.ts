@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, ModuleWithProviders} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {NglIconsModule} from '../icons/module';
 
@@ -17,4 +17,8 @@ const NGL_MODAL_DIRECTIVES = [
   exports: [NGL_MODAL_DIRECTIVES],
   imports: [CommonModule, NglIconsModule],
 })
-export class NglModalsModule {}
+export class NglModalsModule {
+  static forRoot(): ModuleWithProviders {
+    return {ngModule: NglModalsModule, providers: []};
+  }
+}

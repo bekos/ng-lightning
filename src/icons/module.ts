@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, ModuleWithProviders} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {NglIcon} from './icon';
@@ -14,4 +14,8 @@ const NGL_ICON_DIRECTIVES = [
   exports: NGL_ICON_DIRECTIVES,
   imports: [CommonModule],
 })
-export class NglIconsModule {}
+export class NglIconsModule {
+  static forRoot(): ModuleWithProviders {
+    return {ngModule: NglIconsModule, providers: []};
+  }
+}

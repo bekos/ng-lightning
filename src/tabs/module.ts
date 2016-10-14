@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, ModuleWithProviders} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {NglTabs} from './tabs';
@@ -17,4 +17,8 @@ const NGL_TAB_DIRECTIVES = [
   exports: [NGL_TAB_DIRECTIVES],
   imports: [CommonModule, NglInternalOutletModule],
 })
-export class NglTabsModule {}
+export class NglTabsModule {
+  static forRoot(): ModuleWithProviders {
+    return {ngModule: NglTabsModule, providers: []};
+  }
+}

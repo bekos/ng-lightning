@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, ModuleWithProviders} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {NglIconsModule} from '../icons/module';
@@ -14,4 +14,8 @@ import {NglDatepickerYear} from './year';
   exports: [NglDatepicker],
   imports: [CommonModule, FormsModule, NglIconsModule],
 })
-export class NglDatepickersModule {}
+export class NglDatepickersModule {
+  static forRoot(): ModuleWithProviders {
+    return {ngModule: NglDatepickersModule, providers: []};
+  }
+}

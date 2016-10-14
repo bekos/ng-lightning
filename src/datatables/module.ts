@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, ModuleWithProviders} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {NglInternalOutletModule} from '../util/outlet.module';
 
@@ -27,4 +27,8 @@ const NGL_DATATABLE_DIRECTIVES = [
   exports: [NGL_DATATABLE_DIRECTIVES],
   imports: [CommonModule, NglIconsModule, NglInternalOutletModule],
 })
-export class NglDatatablesModule {}
+export class NglDatatablesModule {
+  static forRoot(): ModuleWithProviders {
+    return {ngModule: NglDatatablesModule, providers: []};
+  }
+}

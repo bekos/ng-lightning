@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, ModuleWithProviders} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {NglButton} from './button';
@@ -16,4 +16,8 @@ const NGL_BUTTON_DIRECTIVES = [
   exports: NGL_BUTTON_DIRECTIVES,
   imports: [CommonModule],
 })
-export class NglButtonsModule {}
+export class NglButtonsModule {
+  static forRoot(): ModuleWithProviders {
+    return {ngModule: NglButtonsModule, providers: []};
+  }
+}

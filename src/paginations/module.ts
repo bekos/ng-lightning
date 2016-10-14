@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, ModuleWithProviders} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {NglPagination} from './pagination';
@@ -8,4 +8,8 @@ import {NglPagination} from './pagination';
   exports: [NglPagination],
   imports: [CommonModule],
 })
-export class NglPaginationsModule {}
+export class NglPaginationsModule {
+  static forRoot(): ModuleWithProviders {
+    return {ngModule: NglPaginationsModule, providers: []};
+  }
+}

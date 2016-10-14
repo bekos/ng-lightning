@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, ModuleWithProviders} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {NglAvatar} from './avatar';
@@ -8,4 +8,8 @@ import {NglAvatar} from './avatar';
   exports: [NglAvatar],
   imports: [CommonModule],
 })
-export class NglImagesModule {}
+export class NglImagesModule {
+  static forRoot(): ModuleWithProviders {
+    return {ngModule: NglImagesModule, providers: []};
+  }
+}

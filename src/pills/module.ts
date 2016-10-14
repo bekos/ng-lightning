@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, ModuleWithProviders} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {NglPill} from './pill';
@@ -19,4 +19,8 @@ const NGL_PILL_DIRECTIVES = [
   exports: [NGL_PILL_DIRECTIVES],
   imports: [CommonModule, NglIconsModule],
 })
-export class NglPillsModule {}
+export class NglPillsModule {
+  static forRoot(): ModuleWithProviders {
+    return {ngModule: NglPillsModule, providers: []};
+  }
+}
