@@ -21,10 +21,11 @@ const demos: any = [
 
   { key: 'pills', ts: require('!!raw-loader!./demo/pills/pills.ts'), html: require('!!raw-loader!./demo/pills/pills.html'), readme: require('./demo/pills/README.md'), api: require('./demo/pills/API.md') },
   { key: 'popovers', ts: require('!!raw-loader!./demo/popovers/popovers.ts'), html: require('!!raw-loader!./demo/popovers/popovers.html'), readme: require('./demo/popovers/README.md'), api: require('./demo/popovers/API.md') },
+  { key: 'process', ts: require('!!raw-loader!./demo/process/process.ts'), html: require('!!raw-loader!./demo/process/process.html'), readme: require('./demo/process/README.md'), api: require('./demo/process/API.md') },
   { key: 'ratings', ts: require('!!raw-loader!./demo/ratings/ratings.ts'), html: require('!!raw-loader!./demo/ratings/ratings.html'), readme: require('./demo/ratings/README.md'), api: require('./demo/ratings/API.md') },
   { key: 'sections', ts: require('!!raw-loader!./demo/sections/sections.ts'), html: require('!!raw-loader!./demo/sections/sections.html'), readme: require('./demo/sections/README.md'), api: require('./demo/sections/API.md') },
-  { key: 'spinners', ts: require('!!raw-loader!./demo/spinners/spinners.ts'), html: require('!!raw-loader!./demo/spinners/spinners.html'), readme: require('./demo/spinners/README.md'), api: require('./demo/spinners/API.md') },
 
+  { key: 'spinners', ts: require('!!raw-loader!./demo/spinners/spinners.ts'), html: require('!!raw-loader!./demo/spinners/spinners.html'), readme: require('./demo/spinners/README.md'), api: require('./demo/spinners/API.md') },
   { key: 'tabs', ts: require('!!raw-loader!./demo/tabs/tabs.ts'), html: require('!!raw-loader!./demo/tabs/tabs.html'), readme: require('./demo/tabs/README.md'), api: require('./demo/tabs/API.md') },
 ];
 
