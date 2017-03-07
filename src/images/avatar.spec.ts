@@ -64,6 +64,10 @@ describe('Avatar Component', () => {
     const image = getImageElement(avatar);
     expect(image.getAttribute('alt')).toEqual('assistive text');
   });
+
+  fdescribe('initials', function () {
+
+  });
 });
 
 

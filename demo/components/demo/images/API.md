@@ -1,10 +1,12 @@
 # `<ngl-avatar>`
 
 ### Input
-  * `src`: Path url.
+  * `src?`: Image path url.
   * `size?: 'x-small' | 'small' | 'medium' | 'large' = 'medium'`: Image size.
   * `type?: 'rectangle' | 'circle' = 'rectangle'`: Image shape.
   * `alt?`: Assistive text.
+  * `initials?: string`: Text to be used when image is missing.
+  * `title?: string`: Title.
 
 # `<figure[nglFigure]>`
 

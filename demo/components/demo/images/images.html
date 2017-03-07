@@ -1,12 +1,14 @@
 <div class="slds-text-title--caps slds-m-bottom--small">Avatars</div>
-<ngl-avatar src="assets/images/avatar1.jpg" alt="avatar 1"></ngl-avatar>
+<ngl-avatar src="assets/images/avatar1.jpg" alt="avatar 1" title="Antonis Kostis"></ngl-avatar>
 <ngl-avatar size="small" type="circle" src="assets/images/avatar2.jpg" alt="avatar 2"></ngl-avatar>
+<ngl-avatar type="circle" initials="AK" title="Antonis Kostis"></ngl-avatar>
 
 <div class="slds-grid slds-m-top--large" style="height: 50px;">
  <div class="slds-align-middle slds-col">
    <button type="button" nglButton="neutral" (click)="changeType()">Change Type</button>
    <button type="button" nglButton="neutral" (click)="changeSize()">Change Size</button>
    <ngl-avatar [src]="src" [size]="size" [type]="type"></ngl-avatar>
+   <ngl-avatar initials="PE" [size]="size" [type]="type"></ngl-avatar>
  </div>
 </div>
 

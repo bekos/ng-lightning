@@ -9,6 +9,8 @@ import {replaceClass} from '../util/util';
 export class NglAvatar {
   @Input() src: string = '';
   @Input() alt: string = '';
+  @Input() initials: string = '';
+  @Input() title: string = null;
 
   @Input('size') set setSize(value: string) {
     this.updateClass(this._size, value);
@@ -19,6 +21,8 @@ export class NglAvatar {
     this.updateClass(this._type, value);
     this._type = value;
   }
+
+  @Input() initialsClass = ['slds-icon-standard-account'];
 
   private _type: string;
   private _size: string;
