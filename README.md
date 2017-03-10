@@ -30,7 +30,7 @@ map: {
 ```
 
 #### Dependencies
-This library depends on Salesforce's LDS markup and CSS. We don't ship any CSS file, but you have to take care of including LDS CSS rules in your page. There are various ways to achieve this, like compiling through their source files ([`@salesforce-ux/design-system`](https://github.com/salesforce-ux/design-system)) or by adding this into your `<head>`:
+This library depends on Salesforce's LDS markup and CSS (tested with 2.2.1). We don't ship any CSS file, but you have to take care of including LDS CSS rules in your page. There are various ways to achieve this, for example compiling through their source files ([`@salesforce-ux/design-system`](https://github.com/salesforce-ux/design-system)) or by adding this into your `<head>`:
 
 ```html
 <link rel="stylesheet" href="https://unpkg.com/@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.min.css">
