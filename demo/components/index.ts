@@ -30,6 +30,7 @@ import {DemoPick} from './demo/pick/pick';
 import {DemoPicklist} from './demo/picklist/picklist';
 import {DemoPills} from './demo/pills/pills';
 import {DemoPopovers} from './demo/popovers/popovers';
+import {DemoProgress} from './demo/progress/progress';
 import {DemoRatings} from './demo/ratings/ratings';
 import {DemoSections} from './demo/sections/sections';
 import {DemoSpinners} from './demo/spinners/spinners';
@@ -40,8 +41,8 @@ const DEMO_COMPONENTS = [
   DemoBadges, DemoBreadcrumbs, DemoButtons, DemoDatatables, DemoDatepickers,
   DemoForms, DemoIcons, DemoAvatars, DemoLookups, DemoMenus,
   DemoModals, DemoNotifications, DemoPaginations, DemoPick, DemoPicklist,
-  DemoPills, DemoPopovers, DemoRatings, DemoSections, DemoSpinners,
-  DemoTabs,
+  DemoPills, DemoPopovers, DemoProgress, DemoRatings, DemoSections,
+  DemoSpinners, DemoTabs,
 ];
 
 @NgModule({

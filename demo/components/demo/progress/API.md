@@ -1,4 +1,4 @@
-# `<ngl-breadcrumbs>`
+# `<ngl-progress>`
 
 ### Input
 

@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'demo-breadcrumbs',
-  templateUrl: './breadcrumbs.html',
+  selector: 'demo-progress',
+  templateUrl: './progress.html',
 })
-export class DemoBreadcrumbs {}
+export class DemoProgress {}
