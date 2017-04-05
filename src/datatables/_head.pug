@@ -1,6 +1,13 @@
 .slds-truncate(*ngIf="!sortable", [attr.title]="heading", [nglInternalOutlet]="header")
-a.slds-th__action.slds-text-link--reset(*ngIf="sortable", (click)="sortChange()") 
+a.slds-th__action.slds-text-link--reset(*ngIf="sortable", (click)="sortChange()")
   span.slds-assistive-text Sort Column
   span.slds-truncate([attr.title]="heading", [nglInternalOutlet]="header")
   .slds-icon_container(title="Sort Column")
     svg.slds-icon.slds-icon--x-small.slds-icon-text-default.slds-is-sortable__icon(nglIcon="arrowdown")
+
+div(*ngIf="resizable", nglDatatableResizable, [min]="resizableMin", [max]="resizableMax")
+  input.slds-resizable__input.slds-assistive-text(type="range", tabindex="0", [value]="width",
+                                                  [attr.min]="resizableMin", [attr.max]="resizableMax",
+                                                  (focus)="width = getWidth()", (change)="setWidth($event.target.value)")
+  span.slds-resizable__handle
+    span.slds-resizable__divider

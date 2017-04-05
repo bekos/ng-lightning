@@ -21,5 +21,16 @@ export class NglDatatableColumn {
     return this._sortable;
   }
 
+  @Input() set resizable(resizable: string | boolean) {
+    this._resizable = toBoolean(resizable);
+  }
+  get resizable() {
+    return this._resizable;
+  }
+
+  @Input() resizableMin: number = 50;
+  @Input() resizableMax: number = 1000;
+
   private _sortable = false;
+  private _resizable = false;
 };

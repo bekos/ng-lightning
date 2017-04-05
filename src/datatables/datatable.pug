@@ -3,6 +3,7 @@ thead
     th(*ngFor="let col of columns; trackBy:columnTrackBy", ngl-internal-datatatable-head,
        [heading]="col.heading", [headingTpl]="col.headingTpl?.templateRef",
        [sortable]="col.sortable", [sortOrder]="getColumnSortOrder(col)", (onSort)="onColumnSort(col, $event)",
+       [resizable]="col.resizable", [resizableMin]="col.resizableMin", [resizableMax]="col.resizableMax",
        [ngClass]="col.headClass")
 
 tbody

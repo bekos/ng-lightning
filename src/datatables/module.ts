@@ -11,6 +11,7 @@ import {NglIconsModule} from '../icons/module';
 
 import {NglInternalDatatableHeadCell} from './_head';
 import {NglInternalDatatableCell} from './_cell';
+import {NglDatatableResizable} from './_resizable';
 
 export {INglDatatableSort, INglDatatableRowClick} from './datatable';
 
@@ -23,7 +24,7 @@ const NGL_DATATABLE_DIRECTIVES = [
 ];
 
 @NgModule({
-  declarations: [NGL_DATATABLE_DIRECTIVES, NglInternalDatatableHeadCell, NglInternalDatatableCell],
+  declarations: [NGL_DATATABLE_DIRECTIVES, NglInternalDatatableHeadCell, NglInternalDatatableCell, NglDatatableResizable],
   exports: [NGL_DATATABLE_DIRECTIVES],
   imports: [CommonModule, NglIconsModule, NglInternalOutletModule],
 })
